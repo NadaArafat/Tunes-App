@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tunes_player/widgets/tune_item.dart';
 
@@ -28,16 +29,20 @@ class TunesView extends StatelessWidget {
         elevation: 0,
       ),
       body: Column(
-        children: getTuneItems(),
+        children: tuneColors
+            .map(
+              (e) => TuneItem(color: e),
+            )
+            .toList(),
       ),
     );
   }
 
-  List<TuneItem> getTuneItems(){
-    List<TuneItem> items=[];
-    for(var color in tuneColors) {
-      items.add(TuneItem(color: color));
-    }
-    return items;
-  }
+  // List<TuneItem> getTuneItems() {
+  //   List<TuneItem> items = [];
+  //   for (var color in tuneColors) {
+  //     items.add(TuneItem(color: color));
+  //   }
+  //   return items;
+  // }
 }
