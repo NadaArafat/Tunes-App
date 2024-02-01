@@ -1,13 +1,19 @@
 import 'package:flutter/cupertino.dart';
+import 'package:tunes_player/models/tune_model.dart';
 
 class TuneItem extends StatelessWidget {
-  const TuneItem({super.key, required this.color});
-  final Color color;
+  const TuneItem({super.key, required this.tune});
+  final TuneModel tune;
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        color: color,
+      child: GestureDetector(
+        onTap:(){
+          tune.playSound();
+        },
+        child: Container(
+          color: tune.color,
+        ),
       ),
     );
   }
